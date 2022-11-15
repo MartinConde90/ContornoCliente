@@ -1,11 +1,5 @@
-var clases = [
-    ["DEWA","DEWE","DEWI"],
-    ["DEWO","DEWU","DAWA"],
-    ["DAWA","DEWE","DEWI"],
-    ["DEWE","DEWA","DEWU"],
-    ["DEWI","DEWO","DEWE"],
-    ["DEWU","DEWI","DEWO"]
-]
+//Hacer una función que diga el número de alumnos que están matriculados en un módulo concreto.
+
 var horarioAlum = {
     "DAWDU201":new Array("DEWA","DEWE","DEWI"),
     "DAWDU202":new Array("DEWO","DEWU","DAWA"),
@@ -21,18 +15,18 @@ var horarioAlum = {
     "DAWDU212":new Array("DEWE","DAWA")
 }
 
-function asiste(alumno, dia){
-    for(var i = 0; i<horarioAlum[alumno].length; i++){
-        for(var e = 0; e<clases.length; e++){
-            if(horarioAlum[alumno][i] == clases[e][dia]){
-                return true;
-            }
+function matriculados(modulo){
+    let contador = 0;
+
+    for(let alumno in horarioAlum){
+        if(horarioAlum[alumno].includes(modulo)){
+            contador++;
         }
     }
-    return false;
+    return contador;
 }
 
-alert(asiste("DAWDU203", 2));
+alert(matriculados("DEWO"));
 
 
 

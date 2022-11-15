@@ -23,7 +23,7 @@ function matricula(alumno, modulo){
     return matricula;
 }
 
-alert(matricula("DAWDU203", "DEW"));
+alert(matricula("DAWDU203", "DEWE"));
 
 
 
