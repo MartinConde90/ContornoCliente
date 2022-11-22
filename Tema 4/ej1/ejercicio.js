@@ -40,7 +40,7 @@ function espacios(persona){
     let depurada = persona.trim();
     let array = depurada.split(" ");
     let cadenanew = "";
-    alert(array);
+    //alert(array);
 
     for(var i=0; i<array.length;i++){
         if(array[i]==","){
@@ -57,9 +57,11 @@ function espacios(persona){
 
 function saludo(persona){
     posicion = persona.search(",");
-    let nome = persona.substring(posicion+1, persona.length);
-    
-    return nome;
+    let nome = persona.substring(posicion+2, persona.length);
+
+    let array = nome.split(" ");
+    let mensaje = "Hola " + array[0];
+    return mensaje;
 }
 
 //Ejercicio 1
