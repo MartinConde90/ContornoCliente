@@ -1,5 +1,5 @@
 
-//var persona = prompt("Introduce 'apellidos, nombre'");
+var persona = prompt("Introduce 'apellidos, nombre'");
 //inválidos
  //  var persona = "";
  //  var persona = "          ";
@@ -21,37 +21,24 @@
  
 //válido depurado y palíndromo en sus iniciales
  //  var persona = "Ramírez, Ramón";
- 	 var persona = "Rodríguez Álvarez, Alberto Ramón";
+ //  var persona = "Rodríguez Álvarez, Alberto Ramón";
  //  var persona = "De Ramírez González dios, Domingo Gerardo Rencarnación";
 
 
 var posicion = persona.search(",");
 
 function coma(persona){
-    let mensaje="";
-    
     //EJERCICIO 1
-    if(posicion==-1){
-        mensaje = "Invalido";
-        return mensaje;
-    };
-    if(persona.substring(posicion+1,persona.length).includes(",")){
-        mensaje = "Invalido";
-        return mensaje;
-    }
-    
-    if(persona.substring(0,posicion).trim()=="" && persona.substring(posicion+1,persona.length-1).trim()==""){
-        mensaje = "Se dejaron en blanco nombre y apellidos";
-        return mensaje;
-    }
-    if(persona.substring(0,posicion).trim()==""){
-        mensaje = "Se dejaron en blanco los apellidos";
-        return mensaje;
-    }
-    if(persona.substring(posicion+1,persona.length).trim()=="" || persona[persona.length]==","){
-        mensaje = "Se dejó en blanco el nombre";
-        return mensaje;
-    }
+    if(posicion==-1)
+        return "Invalido falta la coma";
+    if(persona.substring(posicion+1,persona.length).includes(","))
+        return "Invalido, hay  mas de una coma";
+    if(persona.substring(0,posicion).trim()=="" && persona.substring(posicion+1).trim()=="")
+        return "Se dejaron en blanco nombre y apellidos";
+    if(persona.substring(0,posicion).trim()=="")
+        return "Se dejaron en blanco los apellidos";
+    if(persona.substring(posicion+1,persona.length).trim()=="" || persona[persona.length]==",")
+        return "Se dejó en blanco el nombre";
 
     return persona;
 }
@@ -114,7 +101,6 @@ function longitudApellidos(nome){
     return nombre.length;
 }
 
-
 function iniciales(nome){
     let nombre = nome.substring(posicion+1,persona.length).trim().split(" ");
     let apellidos = nome.substring(0,posicion).split(" ");
@@ -142,20 +128,22 @@ function encriptar(nome){
 }
 
 function palindromo(nome){
+    let vocales = ["A","E","I","O","U"];
+    let acentuadas = ["Á","É","Í","Ó","Ú"];
+    let strReversed;
+
     while(nome!==nome.replace(".","")){
         nome = nome.replace(".","");
     }
-    let vocales = ["A","E","I","O","U"];
-    let acentuadas = ["Á","É","Í","Ó","Ú"];
-
+    
     for(let i =0; i< nome.length; i++){
         if(acentuadas.includes(nome[i])){
             nome = nome.replace(nome[i], vocales[acentuadas.indexOf(nome[i])]);
         }
     }
 
-    const strReversed = nome.split("").reverse().join("");
-    return strReversed === nome ? "Si" : "No";
+    strReversed = nome.split("").reverse().join("");
+    return strReversed == nome ? "Si" : "No";
 }
 
 
