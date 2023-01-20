@@ -1,0 +1,64 @@
+﻿/*estilos para los elementos de HTML5*/
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+label, input, select{
+	display:block;
+	width:250px;
+}
+
+input.solucion {
+	display:block;
+	width:20em;
+}
+
+input.letra {
+	display:inline;
+	width:1.5em;
+	text-align:center;
+}
+input:invalid{
+	border:2px dotted red;
+}
+
+div {
+	float:left;
+}
+table{
+	margin:0;
+	padding:0;
+	border-spacing:0;
+	
+}
+
+footer {
+	clear:both;
+}
+#datosSolucionesSopa div {
+	margin:5px;
+	padding: 5px;
+}
+
+td {
+	margin:0;
+	width:1.5em;
+	border:0.5px dashed black;
+}
+
+.clear{
+	clear:both;
+}

@@ -1,0 +1,470 @@
+/* 
+ * A la hora de validar el CSS da varios errores relacionados con los botones
+ * y es debido a que utilizo varias formas iguales pero para distintos navegadores
+ * que el W3C no debe reconocer
+ **/
+
+//estilos para los elementos de HTML5
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+
+* {
+	font-family: Arial;
+	text-align: center;
+    font-size: 16px;
+	background: #0037FF;
+	color: #fff;
+}
+
+body{
+    width:100%;
+	min-width:600px;
+}
+
+h1, h2, h3, h4 {
+	text-shadow: 2px 2px #000;	
+	margin-top: 2ex;
+	margin-bottom: 2ex;
+}
+
+h4 {font-size:1em;}
+h3 {font-size:1.3em;}
+h2 {font-size:1.5em;}
+h1 {font-size:1.8em;}
+
+#texto {
+    font-weight: bold;
+    text-align: justify;
+}
+
+#soluc {
+	color: #000;
+	text-shadow: none;
+    text-align: center;
+    font-size: 2em;
+    background: aqua;
+}
+
+/* HEADER */
+
+#cabeceraPagina {
+	height:inherit;
+}
+
+#titHeader {
+	border-bottom: 2px solid #fff;
+	box-shadow: 0px 3px #000;
+	height:60px;
+}
+
+#titulo {
+	font-size: inherit;
+    margin-left:-75px;
+}
+
+/* HEADER _ BOTON AYUDA */
+#btAyuda  {
+	background: url(img/ayuda.png) !important;
+    background-size: 40px 40px !important;
+	width:40px;
+	height:40px;
+	margin-left:50px;
+	float:left;
+}
+
+#btAyuda:hover {
+	-moz-transform: scale(1.25);
+	-webkit-transform: scale(1.25);
+	-o-transform: scale(1.25);
+	-ms-transform: scale(1.25);
+	transform: scale(1.25);
+}
+
+/*MAIN*/
+#contenidoPagina {
+
+}
+
+main div{
+    width:100%;
+    min-width:600px;
+}
+
+#sopa section,
+#sopa aside {
+	margin-top: 10px; 
+}
+
+/* SECTION */
+section, aside {
+	float: left;
+    width:50%;
+}
+
+#nodoSec {
+	margin-left: 20px;
+}
+
+#nodoSec div {
+	margin-top:10px;
+}
+
+#subtitHeader {
+	clear:both;
+}
+
+#nodoArtTabla {
+	min-width: 500px;
+	width: 500px;
+	border: 5px solid #fff;
+	border-radius: 30px 0px 30px 0px;
+	box-shadow: 2px 2px 5px #000;
+	background-color: #00A1FF;
+    margin:0 auto;
+}
+
+#limpiarLetras {
+	float: none;
+	margin-top: 2%;
+}
+
+#comprobacion {
+	min-width: 350px;
+	width: 30%;
+	text-align: left;
+	margin-left: 5%;
+}
+
+#nodoSoluc {
+    min-width: 500px;
+	width: 500px;
+	margin-left: 5%;
+	margin-top: 3%;
+}
+
+/* TABLAS */
+#tablaCrucigrama {
+	margin: 3%;
+
+}
+table, tr, tbody, td {
+    background: #00A1FF;
+}
+
+#tablaSoluciones {
+	min-width: 400px;
+	width: 400px;
+	box-shadow: 2px 2px 5px #000;
+	background: #002BC6;
+}
+
+#tablaSoluciones, #tablaSoluciones th {
+    padding: 1px;
+	border: 3px solid #fff;
+    box-shadow: 2px 2px 5px #000;
+	border-radius: 5px;
+}
+
+#tablaSoluciones th, #tituloTablaSoluciones {
+	background: #00A1FF;
+	box-shadow: 2px 2px 5px #000;
+}
+
+#tablaSoluciones tr td {
+	padding-top: 3%;
+	padding-bottom: 1%;
+	color: #fff;
+	font-weight: bold;
+}
+
+/* TEXTBOX */
+#txtRespuesta {
+	text-align: left;
+	background: white; 
+    border: 1px solid #DDD; 
+    border-radius: 5px; 
+    outline: none; 
+    height:25px; 
+    width: 275px;
+
+    box-shadow: 2px 2px 5px #000;
+}
+#txtRespuesta:focus {
+    background: #00A1FF;
+    color:white;
+    text-align: center;
+}
+/* BOTONES LETRAS */
+.btLetras {
+	width: 25px;
+	background: #fff;
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	outline:none;
+}
+
+/* Para dar zoom a los botones de la sopa de letras */
+.btLetras:hover{
+	-moz-transform: scale(1.75);
+	-webkit-transform: scale(1.75);
+	-o-transform: scale(1.75);
+	-ms-transform: scale(1.75);
+	transform: scale(1.75);
+}
+/* CARACTERÍSTICAS GENERALES DE LOS BOTONES */
+button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-border-top-left-radius:7px;
+	-moz-border-radius-topleft:7px;
+	border-top-left-radius:7px;
+	-webkit-border-top-right-radius:7px;
+	-moz-border-radius-topright:7px;
+	border-top-right-radius:7px;
+	-webkit-border-bottom-right-radius:7px;
+	-moz-border-radius-bottomright:7px;
+	border-bottom-right-radius:7px;
+	-webkit-border-bottom-left-radius:7px;
+	-moz-border-radius-bottomleft:7px;
+	border-bottom-left-radius:7px;
+	text-indent:0;
+	border:1px solid #337fed;
+	display:inline-block;
+}
+
+#btBorrarLetra,
+#btComprobar {
+	color:#ffffff;
+	background-color:#007bff;
+	font-weight:bold;
+	font-style:normal;	
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #1570cd;
+	font-size:20px;
+	height:50px;
+	line-height:50px;
+    width: 250px;
+}
+
+/*cuando están desactivados porque estoy en el medio de una selección*/
+#btBorrarLetra:disabled,
+#btComprobar:disabled {
+    background-color:lightgrey !important;
+    color:dimgrey !important;
+}
+
+/* BOTON BORRAR LETRAS */
+#btBorrarLetra {
+
+}
+
+/* CÓDIGO DEL BOTÓN COMPROBAR */
+#btComprobar {
+
+}
+
+#btComprobar:hover, #btBorrarTxtBox:hover, #btBorrarLetra:hover, .dgcAlert .dgcVentana .dgcAceptar:hover {
+	background-color:#002c73;
+}
+
+#btComprobar:active, #btBorrarTxtBox:active, #btBorrarLetra:active, .dgcAlert .dgcVentana .dgcAceptar:active {
+	position:relative;
+	top:1px;
+}
+
+
+/***** MI PROPIO ALERT() *****/
+.dgcAlert {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;	 
+	background: url(img/fondoAlert.png) repeat;
+	text-align:center;
+	opacity:0;
+	z-index:9;
+}
+
+.dgcAlert .dgcVentana {
+	width: 700px; 
+	background: #fff;
+	color: #000;
+	min-height: 150px;
+	position: relative;
+	margin: 0 auto;
+	padding: 5px;
+	border-radius: 30px 0px 30px 0px;
+	box-shadow: 2px 2px 5px #fff;
+}
+
+.dgcAlert .dgcVentana .dgcCerrar {
+	height: 25px;
+	width: 25px;
+	float: right; 
+	cursor:pointer; 
+	background: url(img/cerrar.png) no-repeat center center;
+	margin-top: 6px;
+	margin-right: 3px;
+}
+
+.dgcAlert .dgcVentana .dgcMensaje { 
+	margin: 0 auto;
+	padding-top: 45px; 
+	text-align: left; 
+	width: 600px;
+	font-size: 15px; 
+	background: #fff;
+	color: #000;
+}
+
+
+.dgcAlert .dgcVentana .dgcAceptar {
+	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007bff), color-stop(1, #002c73) );
+	background:-moz-linear-gradient( center top, #007bff 5%, #002c73 100% );
+	background-color:#007bff;
+	-webkit-border-top-left-radius:15px;
+	-moz-border-radius-topleft:15px;
+	border-top-left-radius:15px;
+	-webkit-border-top-right-radius:15px;
+	-moz-border-radius-topright:15px;
+	border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomright:15px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-moz-border-radius-bottomleft:15px;
+	border-bottom-left-radius:15px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#fff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:35px;
+	line-height:35px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	margin-top: 10%;
+	margin-bottom:4%;
+}
+
+.subrayado {
+	text-decoration-line: underline;
+	text-emphasis: bolder;
+	background: #fff;
+	color: #000;
+}
+
+/*FOOTER*/
+
+#piePagina,
+#barraAceptacion {
+	left:0px;
+	right:0px;
+	bottom:0px;
+	width:100%;
+	text-align:center;
+	min-height:40px;
+}
+
+/* PARA LIMPIAR LOS FLOAT */
+#piePagina {
+	clear: both;
+}
+
+#piePagina h4 {
+	position:relative;	
+	margin-left: 2em;
+	font-weight: normal;
+}
+
+@media ((min-width:600px) and  (min-height: 740px)){
+	#piePagina h4 {
+		display:block;
+		width:100%;
+		position:fixed !important;
+		margin-left: 2em;
+	}
+}
+
+/* FOOTER *//* COOKIES */
+#barraAceptacion {
+	position:fixed;
+}
+
+
+#barraAceptacion {
+	background-color: rgba(0, 0, 0, 0.5);
+	color:#fff;
+	z-index:99999;
+}
+
+.inner {
+	width:100%;
+	position:absolute;
+	padding-left:5px;
+	font-family:verdana;
+	font-size:12px;
+	top:30%;
+}
+
+.inner a.ok {padding:4px;color:#00ff2e;text-decoration:none;}
+.inner a.info {padding-left:5px;text-decoration:none;color:#faff00;}
+
+/* ACCESOS DIRECTOS */
+.accesoDirecto {
+    display:inline !important;
+    position:relative !important;
+    text-decoration: underline !important;
+    text-decoration-style: solid !important;
+    text-decoration-line: underline !important;
+    text-decoration-skip: ink !important;
+    text-underline-position: under !important;
+    color:inherit !important;
+	background: inherit !important;
+	font-size: inherit !important;
+}
+
+/*colores letras*/
+
+.blanco{
+    background: white;
+}
+
+.verde{
+    background: green; /* #0EDB00 */
+}
+
+.naranja{
+    background: orange;/* #FF9400 */
+}
+
+.amarillo{
+    background: #F7D358; 
+}

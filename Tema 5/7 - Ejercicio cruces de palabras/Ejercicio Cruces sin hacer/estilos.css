@@ -1,0 +1,52 @@
+﻿button{
+    display:block;
+	width:290px;
+	height:70px;
+	font-size:3em;
+}
+
+.contenedor{
+    min-width: 900px;
+}
+
+.contenedor div{
+	float:left;
+    width:300px;
+	height:300px;
+}
+
+select{
+	size:10;
+	width:290px;
+	height:290px;
+}
+
+#boton{   
+    margin: 0 auto;
+    width:900px;
+    min-width:900px;
+    height:80px;
+}
+
+#cruzar{
+	width:280px;
+    min-width:280px;
+    margin:10px auto;
+	font-size:2em;¡
+}
+
+#cruces{
+    clear:both;
+    width:100%;
+}
+
+table{
+    float:left;
+    border:1px solid black;
+}
+table td{
+    width:20px;
+    height:20px;
+    border:1px solid black;
+    text-align: center;
+}

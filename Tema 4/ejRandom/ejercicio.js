@@ -1,41 +1,45 @@
 function random(num1, num2, cantidad){
     const fruits = [];
     for(let i =0; i<cantidad; i++){
-        fruits.push(Math.floor(Math.random() * (num2 -num1+1)) + num1);
+        let num = Math.floor(Math.random() * (num2 -num1+1)) + num1;
+        while(fruits.includes(num)){
+          num = Math.floor(Math.random() * (num2 -num1+1)) + num1;
+        }
+        fruits.push(num);
     }
     return fruits;
 }
 
-alert(random(1,10,3));
+//alert(random(1,10,3));
 
 //FALTA CONTROLAR QUE NO SE REPITAN NUMEROS DENTRO DE LA MISMA SERIE
 
-function loteria(jugar){
+function loteria(juego){
     let numeros;
     let reintegro;
-    switch (jugar) {
+    switch (juego) {
         case 'Primitiva':
-           numeros = random(1,49,6);
-           reintegro = random(0,9,1);
-            alert(numeros + "-" + reintegro);
+          numeros = random(1,49,6);
+          reintegro = random(0,9,1);
+          alert(numeros + "-" + reintegro);
           break;
         case 'El Gordo':
-             numeros = random(1,54,5);
-             reintegro = random(0,9,1);
-             alert(numeros + "-" + reintegro);
+          numeros = random(1,54,5);
+          reintegro = random(0,9,1);
+          alert(numeros + "-" + reintegro);
           break;
-        case 'Euromillón':
-             numeros = random(1,50,5);
-             reintegro = random(1,12,2);
-             alert(numeros + "-" + reintegro);
+        case 'Euromillon':
+          numeros = random(1,50,5);
+          reintegro = random(1,12,2);
+          alert(numeros + "-" + reintegro);
           break;
         case 'Bonoloto':
-             numeros = random(1,49,6);
-             alert(numeros);
+          numeros = random(1,49,6);
+          alert(numeros);
           break;
         default:
           alert("Lotería no existente");
       }   
 }
-//var jugar = prompt("Introduce que lotería jugar: ");
-//loteria(jugar);
+var juego = prompt("Introduce que lotería juego: ");
+loteria(juego);

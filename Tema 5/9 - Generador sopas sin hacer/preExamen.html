@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<script type="text/javascript" src="miLibreria.js"></script>
+		<script type="text/javascript" src="sopaLetras.js"></script>
+		<script type="text/javascript" src="preExamen.js"></script>
+		<link rel="stylesheet" href="preExamen.css">
+	</head>
+	<body>
+		<header>
+			<h1>SOPA DE LETRAS</h1>
+		</header>
+		<main>
+			<section>
+				<h2>Crear sopa de letras</h2>
+				<label for="titulo">Título o tema de la sopa</label>
+				<input type="text" id="titulo" name="titulo" placeholder="Descubre 4 animales salvajes" required="required" value="Descubre 4 animales salvajes"/>
+				<p></p>
+				<label for="numSoluciones">Número de soluciones</label>
+				<select id="numSoluciones" name="numSoluciones">
+					
+				</select>
+				<p></p>
+				<label for="numCeldas">Número de celdas del tablero</label>
+				<select id="numCeldas" name="numCeldas">
+					
+				</select>
+				<p></p>
+				<input type="button" id="generarSopa" name="generarSopa" value="Introducir datos de la sopa"/>
+				<p></p>
+			</section>
+			<aside>
+				<div id="datosSolucionesSopa" hidden="hidden">
+					<div>
+						<label>Escribe tus soluciones</label>
+						<div id="soluciones">
+						</div>
+					</div>
+					<div>
+						<label for="letrasTablero">Escribe las letras de la sopa de letras</label>
+						<div id="letrasTablero">
+						</div>
+						<div class="clear">
+							<input type="button" id="comprobarSoluciones" name="comprobarSoluciones" value="Comprobar Soluciones"/>
+							<input type="button" id="grabarSoluciones" name="grabarSoluciones" value="Grabar Soluciones" disabled="disabled"/>
+						</div>
+					</div>
+					<p></p>
+					
+				</div>
+			</aside>
+		</main>
+		<footer>
+			<input type="button" id="obtenerCookies" name="obtenerCookies" value="Ver Cookies Almacenadas"/>
+			<p>CC-BY-NC Beatriz Eugenia Buyo Pérez 2018</p>
+		</footer>
+	</body>
+</html>
