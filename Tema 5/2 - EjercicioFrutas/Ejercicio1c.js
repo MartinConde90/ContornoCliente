@@ -4,6 +4,13 @@ function mostrarInicio(){
 
     document.getElementById("operar").addEventListener("click", accion, false);
     document.getElementById("misFrutas").addEventListener("click", autochecked, false);
+    document.getElementById("nuevaFruta").addEventListener("click", seleccionar, false);
+}
+
+function seleccionar(){
+    var input = document.getElementById('nuevaFruta');
+    input.focus();
+    input.select();
 }
 
 function autochecked(){
@@ -26,16 +33,8 @@ function accion(){
 function añadir(){
     let objFrutas=document.getElementById("misFrutas");
     let nuevaFruta=document.getElementById("nuevaFruta").value;
-    let contador=0;
-    
-    acentuada(nuevaFruta.toUpperCase(),objFrutas);
 
-    for (var option of document.getElementById("misFrutas").options) {
-        if(nuevaFruta.toUpperCase() == option.value.toUpperCase()){
-            contador++
-        }
-    }
-    if(contador==0){
+    if(acentuada(nuevaFruta.toUpperCase(),objFrutas)){
         let option = document.createElement("option");
             option.text = nuevaFruta;
             option.value = nuevaFruta;
@@ -51,6 +50,7 @@ function acentuada(nueva, existentes){
     
     let existentesMod=[];
     let exist="";
+    let bool = true;
 
     for(let i =0; i< nueva.length; i++){
         if(acentuadas.includes(nueva[i])){
@@ -69,6 +69,15 @@ function acentuada(nueva, existentes){
     }
 
     console.log(existentesMod);
+    console.log(nueva);
+
+    for(let p=0; p<existentesMod.length; p++){
+        if(nueva == existentesMod[p]){
+            bool = false;
+        }
+    }
+
+    return bool;
 }
 
 function borrar(){
