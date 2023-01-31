@@ -56,7 +56,7 @@ function enviarAll(origen,destino){
     }else{
         let x = document.getElementById(destino);//id del select donde queremos enviar las aficiones seleccionadas
         let contador = 0;
-        for(let i=elementos.length-1; i>= 0; i--){ //recorremos el array con todos los elementos,al reves
+        for(let i=elementos.length-1; i>= 0; i--){ //recorremos el array con todos los elementos,al reves, ya que el quitar uno, el siguiente ocupa su lugar
             x.add(elementos[i],x.length-contador); 
             //añadimos el último elemento del array en la posicion length-contador, que va a ser la que era la última antes de comenzar
             //a añadir
