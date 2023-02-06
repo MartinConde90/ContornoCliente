@@ -9,6 +9,7 @@ function mostrarInicio(){
 
 function seleccionar(){
     var input = document.getElementById('nuevaFruta');
+    document.getElementById("añadir").checked=true;
     input.focus();
     input.select();
 }
@@ -34,15 +35,25 @@ function añadir(){
     let objFrutas=document.getElementById("misFrutas");
     let nuevaFruta=document.getElementById("nuevaFruta").value;
 
-    if(acentuada(nuevaFruta.toUpperCase(),objFrutas)){
-        let option = document.createElement("option");
-            option.text = nuevaFruta;
-            option.value = nuevaFruta;
-            objFrutas.add(option);
+    nuevaFruta = nuevaFruta.charAt(0).toUpperCase() + nuevaFruta.slice(1);;
+
+    if(nuevaFruta.length == ""){
+        alert("No se ha escrito una nueva fruta")
     }else{
-        alert("fruta ya existente");
-    }   
+        if(acentuada(nuevaFruta.toUpperCase(),objFrutas)){
+            let option = document.createElement("option");
+                option.text = nuevaFruta;
+                option.value = nuevaFruta;
+                alert("Nueva fruta añadida:" + " " + nuevaFruta);
+                objFrutas.add(option);
+        }else{
+            alert("fruta ya existente");
+        }  
+    }
+     
 }
+
+
 
 function acentuada(nueva, existentes){
     let vocales = ["A","E","I","O","U"];
@@ -84,35 +95,23 @@ function borrar(){
 
     let text = "Seguro que quieres eliminar?\n";
     let objFrutas=document.getElementById("misFrutas");// id del select que contiene las frutas
-    for(let i=0; i<objFrutas.length ; i++){//recorremos el select al revés, ya que al eliminar uno, el siguiente acupa su lugar
-        if(objFrutas[i].selected){ //si alguna de las opciones está seleccionada
-            text += objFrutas[i].value+"\n";
-        }
-    }
 
-    if (confirm(text) == true) {
-        for(let i =objFrutas.length-1; i>=0 ; i--){//recorremos el select al revés, ya que al eliminar uno, el siguiente acupa su lugar
+    let elementos = objFrutas.selectedOptions;//guarda un array con las selecciones
+    if(elementos.length ==0){
+        alert("No se han seleccionado elementos a borrar");
+    }else{
+        for(let i=0; i<objFrutas.length ; i++){//recorremos el select al revés, ya que al eliminar uno, el siguiente acupa su lugar
             if(objFrutas[i].selected){ //si alguna de las opciones está seleccionada
-                objFrutas.remove(i);//borramos esa opcion del select
+                text += objFrutas[i].value+"\n";
             }
         }
-    } 
     
-}
-
-//tildes y minusc mayusc
-/*
-let vocales = ["A","E","I","O","U"];
-    let acentuadas = ["Á","É","Í","Ó","Ú"];
-    let strReversed;
-
-    while(nome!==nome.replace(".","")){
-        nome = nome.replace(".","");
-    }
-    
-    for(let i =0; i< nome.length; i++){
-        if(acentuadas.includes(nome[i])){
-            nome = nome.replace(nome[i], vocales[acentuadas.indexOf(nome[i])]);
+        if (confirm(text) == true) {
+            for(let i =objFrutas.length-1; i>=0 ; i--){//recorremos el select al revés, ya que al eliminar uno, el siguiente acupa su lugar
+                if(objFrutas[i].selected){ //si alguna de las opciones está seleccionada
+                    objFrutas.remove(i);//borramos esa opcion del select
+                }
+            }
         }
     }
-*/
+}
