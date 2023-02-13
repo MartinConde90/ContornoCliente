@@ -17,38 +17,74 @@ function Inicio(){
 	document.getElementById("generarMenu").addEventListener("click", creaMenu, false);
 
 	document.getElementById("favorito").addEventListener("click", menufavorito, false);
+
+	document.getElementById("listaMenus").addEventListener("click", menuSeleccionado, false);
+
+}
+
+function menuSeleccionado(){
+	let favorito = document.getElementById("listaMenus").value;
+	let index = document.getElementById("listaMenus").selectedIndex;
+
+	let menu =document.getElementById("menuFavorito");
+	let precio = document.getElementById("precio");
+	let contador=0;
+
+	if(favorito== menu.value){
+		document.getElementById("favorito").checked = true;
+	}else{
+		document.getElementById("favorito").checked = false;
+	}
+
+	
+
+	for(let i=1; i< arrayMenus[index].length;i+=2){
+		if(i<arrayMenus[index].length){
+			contador += arrayMenus[index][i];
+		}
+	 };
+	 precio.value = contador+"€";
+
 }
 
 function menufavorito(){
 	favorito = document.getElementById("listaMenus").selectedIndex;
+	let menu =document.getElementById("menuFavorito");
 
-	if(favorito!=-1){
-		let menu =document.getElementById("menuFavorito");
-		menu.value = arrayMenus[favorito];
+	if(document.getElementById("favorito").checked == false && menu.value == arrayMenus[favorito]){
+		menu.value = "";
+	}else if(document.getElementById("favorito").checked == true && menu.value != arrayMenus[favorito]){
+		menu.value = document.getElementById("listaMenus").value;
 	}else{
 		alert("Ningun menú elegido para añadir a favorito");
 	}
+	
+	
 }
 
 
 function creaMenu(){
 	let menu =document.getElementById("listaMenus");
-
 	let array=[];
-
 	let plato = document.getElementById("plato").selectedIndex;
+	let bebida = document.getElementById("bebida").selectedIndex;
+	let postre = document.getElementById("postre").selectedIndex;
+
 	if(plato!=-1){
 		array.push(platos[plato][0]);
+		array.push(platos[plato][1]);
 
 	}
-	let bebida = document.getElementById("bebida").selectedIndex;
+	
 	if(bebida!=-1){
 		array.push(bebidas[bebida][0]);
+		array.push(bebidas[bebida][1]);
 
 	}
-	let postre = document.getElementById("postre").selectedIndex;
+	
 	if(postre!=-1){
 		array.push(postres[postre][0]);
+		array.push(postres[postre][1]);
 	}
 
 	
@@ -58,8 +94,16 @@ function creaMenu(){
 	}else{
 		if(repetido(arrayMenus,array)){
 			let option = document.createElement("option");
-                option.text = array;
-                option.value = array;
+                 for(let i=0; i< array.length;i+=2){
+					if(i<array.length-2){
+						option.text +=array[i]+","; 
+						//option.value +=array[i]+",";
+					}else{
+						option.text +=array[i]; 
+						//option.value +=array[i];
+					}
+				 };
+
 				
                 menu.add(option);
 				arrayMenus.push(array);
@@ -71,42 +115,50 @@ function creaMenu(){
 		else{
 			alert("Menú ya existente");
 		}
-
-		
 	}
+
+	menuSeleccionado();
 }
 
 function repetido(menus, menu){
 	var bool = true;
+	let contador =0;
 	for(let i=0;i<menus.length;i++){
 		if(menus[i].length == menu.length){
 			for(j=0; j<menu.length;j++){
 				if(menus[i][j]==menu[j]){
-					bool = false;
+					contador++;
 				}
+			}
+			if(contador == menu.length){
+				bool = false;
 			}
 		}
 	}
+	
 	return bool;
 }
 
 function mostrar(){
 	
 		let plato =document.getElementById("plato");
+		let bebida =document.getElementById("bebida");
+		let postre =document.getElementById("postre");
+
 		for(let i=0; i< platos.length; i++){
 			let option = document.createElement("option");
                 option.text = platos[i][0];
                 option.value = platos[i][0];
                 plato.add(option);
 		}
-		let bebida =document.getElementById("bebida");
+		
 		for(let j=0; j< bebidas.length; j++){
 			let option = document.createElement("option");
                 option.text = bebidas[j][0];
                 option.value = bebidas[j][0];
                 bebida.add(option);
 		}
-		let postre =document.getElementById("postre");
+		
 		for(let j=0; j< postres.length; j++){
 			let option = document.createElement("option");
                 option.text = postres[j][0];
@@ -136,7 +188,7 @@ var bebidas=[
 			["Botella de Godello",12],
 			["Botella de Ribera del Duero",16],
 			["Botella de Cava",15],
-			["Botella de Rioja",],
+			["Botella de Rioja",14],
 			["Botella de Albariño",14]
 		];
 //array que almacena los datos de los postres: nombre y precio
