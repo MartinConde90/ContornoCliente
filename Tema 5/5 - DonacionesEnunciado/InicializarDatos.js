@@ -1,8 +1,30 @@
+window.addEventListener("load", Inicio,false);
+function Inicio(){
+
+	evento();
+
+}
 //////////////////////////////////////
 //variables globales a utilizar en el programa
 /////////////////////////////////////
+
+
+function evento(){
+	const date = new Date();
+	let day = date.getDate();
+	let month = date.getMonth() + 1;
+	let year = date.getFullYear();
+	let currentDate = `${day}/${month}/${year}`;
+	for(let i=0; i<visitas.length;i++){
+		if(visitas[i][0] == currentDate){
+			let fecha = document.getElementById("datosGenerales");
+			fecha.value = visitas[i][1] + "--"+responsables[i];
+		}
+	}
+}
+
 var visitas=[
-				["9/3/2021","CIFP A Carballeira"],
+				["14/2/2023","CIFP A Carballeira"],
 				["10/2/2021","Blanco Amor"],
 				["16/4/2021","IES Universidad Laboral"],
 				["24/1/2021","IES Portovello"],
